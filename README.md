@@ -1,4 +1,4 @@
-# winmdsscripts
+# WinMSSScripts
 A script or two to help manage your Minecraft Bedrock Edition server on Windows.
 
 # Why?
