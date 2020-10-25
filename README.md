@@ -11,6 +11,12 @@ I wanted a simple script that would do some housekeeping for me while I was sett
 - launches your server
 - (optional) launches a tool so you can view the log files in realtime.
 
+# What is does not do
+- It doesn't display the console output and writing to logs. On a batch script you can have one or the other. We would need things like a named pipe and a more sophisitcated app to read from that pipe, display and log it. I really wanted something simple and obvious.
+- It doesn't support automatic shutdowns. You need to type in "stop" to get a clean shutdown as usual.
+- It doesn't support automatic restarts on server crashes.
+- It doesn't come with any kind of support or liability from me whatsoever.
+
 # Instructions
 - Create a folder that you want to have your server in. e.g. D:\Games\Minecraft
 - Download the contents of this repo to that folder
