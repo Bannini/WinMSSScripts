@@ -1,7 +1,7 @@
-# win_minecraft_bedrock_server_scripts
+# winmdsscripts
 A script or two to help manage your Minecraft Bedrock Edition server on Windows.
 
-## Why?
+# Why?
 I wanted a simple script that would do some housekeeping for me while I was setting up a [Minecraft Bedrock Server](https://www.minecraft.net/en-us/download/server/bedrock) for my family. There are other tools out there but I wanted a simple script that I could see what it was going to do.
 
 # What it does
