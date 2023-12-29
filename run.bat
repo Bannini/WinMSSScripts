@@ -1,12 +1,11 @@
 @echo off
-SET SERVERFOLDER=MinecraftServer
 SET BACKUP=saves
 SET LOGS=logs
 SET DAYSTOKEEPBACKUPS=30
 
 REM Create the BACKUP and LOGS directories if they don't already exist
-if not exist .\%BACKUP% echo md %BACKUP%
-if not exist .\%LOGS% echo md %LOGS%
+if not exist .\%BACKUP% md %BACKUP%
+if not exist .\%LOGS% md %LOGS%
 
 REM Delete older backups and log files older than DAYSTOKEEPBACKUPS value
 ForFiles /p .\%BACKUP% /d -%DAYSTOKEEPBACKUPS% /c "cmd /c rd /s /q @file"
@@ -20,12 +19,12 @@ echo Timestamp set to %TIMESTAMP%
 
 REM Make a backup
 md .\%BACKUP%\%TIMESTAMP%
-XCOPY .\%SERVERFOLDER%\worlds\* .\%BACKUP%\%TIMESTAMP% /s /i
+XCOPY .\worlds\* .\%BACKUP%\%TIMESTAMP% /s /i
 
 REM Run the server - We redirect the output (the ">" and "2>") to output and error files.
 echo Running. See .\%LOGS%\%TIMESTAMP%_output.txt for the output
-cd .\%SERVERFOLDER%\
-start cmd /c ".\bedrock_server.exe > ..\%LOGS%\%TIMESTAMP%_output.txt 2>..\%LOGS%\%TIMESTAMP%_errors.txt"
+cd /d %~dp0
+start "Bedrock Server" cmd /c "bedrock_server.exe > .\%LOGS%\%TIMESTAMP%_output.txt 2>.\%LOGS%\%TIMESTAMP%_errors.txt"
 
 REM Because Windows can't write logs to a file as well as to the console, you can use baretail
 REM or gnu tools "tail.exe" to "tail" the file (i.e. see what's happening).
